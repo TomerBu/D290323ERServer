@@ -86,6 +86,21 @@ public class Program
 
         app.UseCors(corsPolicy);
 
+        //run code once
+        using (var scope = app.Services.CreateScope())
+        {
+            try
+            {
+                //exec the migration once when the app loads (if there are new migrations)
+                var context = scope.ServiceProvider.GetRequiredService<ContextDAL>();
+                context.Database.Migrate();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error excecuting migration " + ex.Message);
+            }
+        }
+
         // Configure the HTTP request pipeline.
         //if (app.Environment.IsDevelopment())
         //{
