@@ -74,6 +74,7 @@ public class Program
                         "http://localhost:3000",
                         "http://localhost:5173",
                         "http://localhost:5174",
+                        "https://gentle-dune-0ddfde800.5.azurestaticapps.net",
                         //host
                     ])
                 .AllowAnyHeader()
