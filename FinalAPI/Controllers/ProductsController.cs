@@ -14,9 +14,10 @@ public class ProductsController(
     ) : ControllerBase
 {
     [HttpGet]
-    [Authorize]
+    //[Authorize]
     public ActionResult GetProducts()
     {
+        Console.WriteLine("Get Products");
         var allProducts = repository.GetAll();
 
         //Product->category
