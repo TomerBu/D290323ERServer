@@ -92,6 +92,7 @@ public class Program
         {
             try
             {
+                Console.WriteLine("Migrating database");
                 //exec the migration once when the app loads (if there are new migrations)
                 var context = scope.ServiceProvider.GetRequiredService<ContextDAL>();
                 context.Database.Migrate();
